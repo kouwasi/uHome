@@ -59,11 +59,7 @@ public class WarmUp {
     }
 
     public static boolean isWarming(Player player) {
-        if (players.containsKey(player.getName())) {
-            return true;
-        } else {
-            return false;
-        }
+        return players.containsKey(player.getName());
     }
 
     public static void cancelWarming(Player player, Plugin plugin, Reason reason) {

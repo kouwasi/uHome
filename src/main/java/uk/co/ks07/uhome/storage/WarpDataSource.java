@@ -85,7 +85,7 @@ public class WarpDataSource {
             int orphansRemoved = cleanupOrphans(log);
 
             if (orphansRemoved > 0) {
-                log.info("Cleaned up " + Integer.toString(orphansRemoved) + " orphaned invites from the database.");
+                log.info("Cleaned up " + orphansRemoved + " orphaned invites from the database.");
             }
 
             log.info("Database is up-to-date.");
@@ -212,8 +212,8 @@ public class WarpDataSource {
                     retHL.put(owner.toLowerCase(), ownerWarps);
                 }
             }
-            log.info(Integer.toString(size) + " homes loaded");
-            log.info(Integer.toString(invSize) + " invites loaded");
+            log.info(size + " homes loaded");
+            log.info(invSize + " invites loaded");
         } catch (SQLException ex) {
             log.log(Level.SEVERE, "Home Load Exception", ex);
         } finally {
@@ -315,7 +315,7 @@ public class WarpDataSource {
                         Home warp = new Home(index, owner, name, world, x, y, z, yaw, pitch, aTime, unlocked);
                         addWarp(warp, log);
                     }
-                    log.info("Imported " + Integer.toString(size) + " homes from " + sqlitedb);
+                    log.info("Imported " + size + " homes from " + sqlitedb);
 
                     if (slstatement != null) {
                         slstatement.close();
@@ -397,7 +397,7 @@ public class WarpDataSource {
                             String player = slset.getString("player");
                             addInvite(homeID, player, log);
                         }
-                        log.info("Imported " + Integer.toString(size) + " invites from " + sqlitedb);
+                        log.info("Imported " + size + " invites from " + sqlitedb);
 
                         // Rename here, we should have inserted homes previously.
                         log.info("Renaming " + sqlitedb + " to " + sqlitedb + ".old");
@@ -686,7 +686,7 @@ public class WarpDataSource {
                         Home warp = new Home(index, owner, "home", world, x, y, z, yaw, pitch, Home.UNRECORDED_ATIME, false);
                         addWarp(warp, log);
                     }
-                    log.info("Imported " + Integer.toString(size) + " homes from " + mhsqlitedb);
+                    log.info("Imported " + size + " homes from " + mhsqlitedb);
 
                     if (slstatement != null) {
                         slstatement.close();
@@ -955,10 +955,10 @@ public class WarpDataSource {
         }
     }
 
-    private static enum TableStatus {
+    private enum TableStatus {
         NONE_EXIST,
         OLD_ONLY,
         UP_TO_DATE,
-        NO_ITABLE;
+        NO_ITABLE
     }
 }

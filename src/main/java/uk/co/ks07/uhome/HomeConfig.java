@@ -143,14 +143,14 @@ public class HomeConfig {
                     String permNode = "uhome.limit." + obj.getKey().substring(obj.getKey().lastIndexOf(".") + 1);
                     Integer limitValue = (Integer) obj.getValue();
 
-                    log.info("Loaded permission node: " + permNode + " with order " + Integer.toString(count));
+                    log.info("Loaded permission node: " + permNode + " with order " + count);
                     permLimits.put(permNode, limitValue);
                     SuperPermsManager.registerPermission(permNode);
                 } else {
                     log.warning("Ignoring an invalid limit value in homeLimits for key: " + obj.getKey());
                 }
             }
-            log.info("Loaded " + Integer.toString(count) + " permission based home limits.");
+            log.info("Loaded " + count + " permission based home limits.");
 
             // If we're not using invites, don't bother creating the limit map.
             if (enableInvite) {
@@ -163,7 +163,7 @@ public class HomeConfig {
                         String permNode = "uhome.invlimit." + obj.getKey().substring(obj.getKey().lastIndexOf(".") + 1);
                         Integer limitValue = (Integer) obj.getValue();
 
-                        log.info("Loaded permission node: " + permNode + " with order " + Integer.toString(count));
+                        log.info("Loaded permission node: " + permNode + " with order " + count);
                         permInvLimits.put(permNode, limitValue);
                         SuperPermsManager.registerPermission(permNode);
                     } else {
@@ -171,7 +171,7 @@ public class HomeConfig {
                     }
                 }
 
-                log.info("Loaded " + Integer.toString(count) + " permission based invite limits.");
+                log.info("Loaded " + count + " permission based invite limits.");
             }
 
             // If we're not using timer perms, don't bother populating the maps.
@@ -185,7 +185,7 @@ public class HomeConfig {
                         String permNode = "uhome.warmup." + obj.getKey().substring(obj.getKey().lastIndexOf(".") + 1);
                         Integer limitValue = (Integer) obj.getValue();
 
-                        log.info("Loaded permission node: " + permNode + " with order " + Integer.toString(count));
+                        log.info("Loaded permission node: " + permNode + " with order " + count);
                         permWarmUps.put(permNode, limitValue);
                         SuperPermsManager.registerPermission(permNode);
                     } else {
@@ -193,7 +193,7 @@ public class HomeConfig {
                     }
                 }
 
-                log.info("Loaded " + Integer.toString(count) + " permission based warmup times.");
+                log.info("Loaded " + count + " permission based warmup times.");
 
                 count = 0;
                 permCoolDowns = new LinkedHashMap<String, Integer>();
@@ -204,7 +204,7 @@ public class HomeConfig {
                         String permNode = "uhome.cooldown." + obj.getKey().substring(obj.getKey().lastIndexOf(".") + 1);
                         Integer limitValue = (Integer) obj.getValue();
 
-                        log.info("Loaded permission node: " + permNode + " with order " + Integer.toString(count));
+                        log.info("Loaded permission node: " + permNode + " with order " + count);
                         permCoolDowns.put(permNode, limitValue);
                         SuperPermsManager.registerPermission(permNode);
                     } else {
@@ -212,7 +212,7 @@ public class HomeConfig {
                     }
                 }
 
-                log.info("Loaded " + Integer.toString(count) + " permission based cooldown times.");
+                log.info("Loaded " + count + " permission based cooldown times.");
             }
         } catch (Exception ex) {
             log.log(Level.SEVERE, "Unable to load config", ex);

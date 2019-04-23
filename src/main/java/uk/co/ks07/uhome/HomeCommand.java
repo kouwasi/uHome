@@ -837,14 +837,14 @@ public class HomeCommand implements CommandExecutor {
 
     public void purgeHomes(CommandSender user, String argument) {
         if (purgeCommandTime > (System.currentTimeMillis() - PURGE_TIMEOUT_MILLIS) && "confirm".equals(argument)) {
-            user.sendMessage("Now purging homes last accessed over " + Integer.toString(purgeCommandDays) + " days ago. This may take a long time, and may lag the server...");
+            user.sendMessage("Now purging homes last accessed over " + purgeCommandDays + " days ago. This may take a long time, and may lag the server...");
 
             int purgeTime = daysToSeconds(purgeCommandDays);
 
             int purged = this.homeList.cleanupHomes(purgeTime);
 
             if (purged > 0) {
-                user.sendMessage("Deleted " + Integer.toString(purged) + " homes last accessed over " + Integer.toString(purgeCommandDays) + " days ago.");
+                user.sendMessage("Deleted " + purged + " homes last accessed over " + purgeCommandDays + " days ago.");
             } else {
                 user.sendMessage("No homes were last accessed more than " + purgeCommandDays + " days ago.");
             }
@@ -852,7 +852,7 @@ public class HomeCommand implements CommandExecutor {
             try {
                 this.purgeCommandDays = Integer.parseInt(argument);
                 this.purgeCommandTime = System.currentTimeMillis();
-                user.sendMessage("Ready to purge all homes last accessed more than " + Integer.toString(this.purgeCommandDays) + " days ago.");
+                user.sendMessage("Ready to purge all homes last accessed more than " + this.purgeCommandDays + " days ago.");
                 user.sendMessage(ChatColor.RED + "This will PERMANENTLY DELETE any homes found that match this criteria. We STRONGLY suggest you backup your database before continuing!");
                 user.sendMessage("To continue, please do `home purge confirm` within the next 30 seconds. This may cause lag depending on the number of homes.");
             } catch (NumberFormatException ex) {

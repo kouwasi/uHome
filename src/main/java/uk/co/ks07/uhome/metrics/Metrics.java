@@ -44,6 +44,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -480,7 +481,7 @@ public class Metrics {
      * @return the encoded text, as UTF-8
      */
     private static String encode(final String text) throws UnsupportedEncodingException {
-        return URLEncoder.encode(text, "UTF-8");
+        return URLEncoder.encode(text, StandardCharsets.UTF_8);
     }
 
     /**

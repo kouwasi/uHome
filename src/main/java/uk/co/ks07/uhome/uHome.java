@@ -164,9 +164,7 @@ public class uHome extends JavaPlugin {
             oldDatabase.renameTo(new File(df, "homes.db.old"));
 
             // Return true if importing is required (sqlite only).
-            if (!HomeConfig.usemySQL) {
-                return true;
-            }
+            return !HomeConfig.usemySQL;
         } else if (newDatabase.exists() && oldDatabase.exists()) {
             // We no longer need this file since uhomes.db exists
             oldDatabase.renameTo(new File(df, "homes.db.old"));
@@ -539,14 +537,14 @@ public class uHome extends JavaPlugin {
 
                 if (HomeConfig.enableInvite) {
                     invslstatement = sqliteconn.createStatement();
-                    invslset = invslstatement.executeQuery("SELECT invited_player FROM hsp_homeinvite WHERE home_id = " + Integer.toString(id));
+                    invslset = invslstatement.executeQuery("SELECT invited_player FROM hsp_homeinvite WHERE home_id = " + id);
                     while (invslset.next()) {
                         this.homeList.invitePlayer(owner, invslset.getString("invited_player"), homeName);
                     }
                 }
             }
 
-            this.getLogger().info("Imported " + Integer.toString(imported) + " homes.");
+            this.getLogger().info("Imported " + imported + " homes.");
         } catch (Exception ex) {
             this.getLogger().log(Level.WARNING, "HomeSpawnPlus Import Exception", ex);
         } finally {

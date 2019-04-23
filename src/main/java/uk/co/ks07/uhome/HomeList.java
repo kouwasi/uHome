@@ -495,7 +495,7 @@ public class HomeList {
         }
     }
 
-    public static enum ExitStatus {
+    public enum ExitStatus {
         SUCCESS,
         SUCCESS_MOVED,
         SUCCESS_FIRST,
@@ -505,7 +505,7 @@ public class HomeList {
         NEED_COOLDOWN,
         DUPLICATE,
         UNKNOWN,
-        NOT_ENOUGH_MONEY;
+        NOT_ENOUGH_MONEY
     }
 }
 

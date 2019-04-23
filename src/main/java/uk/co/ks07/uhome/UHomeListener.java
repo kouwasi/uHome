@@ -2,7 +2,6 @@ package uk.co.ks07.uhome;
 
 import org.bukkit.Chunk;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Animals;
 import org.bukkit.entity.Entity;
@@ -20,6 +19,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.material.Bed;
 import uk.co.ks07.uhome.timers.WarmUp;
 
 public class UHomeListener implements Listener {
@@ -82,7 +82,7 @@ public class UHomeListener implements Listener {
             return;
         }
 
-        if (HomeConfig.bedsDuringDay && event.getClickedBlock().getType() == Material.BED_BLOCK) {
+        if (HomeConfig.bedsDuringDay && event.getClickedBlock().getState() instanceof Bed) {
             if (HomeConfig.bedsCanSethome != 0) {
                 homeList.addHome(event.getPlayer(), plugin, uHome.DEFAULT_HOME, plugin.getLogger());
             }

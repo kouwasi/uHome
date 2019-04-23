@@ -5,7 +5,7 @@
 
 	<groupId>uk.co.ks07</groupId>
 	<artifactId>uhome</artifactId>
-	<version>1.5.3</version>
+	<version>1.5.4</version>
 	<packaging>jar</packaging>
 
 	<name>uHome</name>
@@ -18,28 +18,26 @@
 
 	<repositories>
 		<repository>
-			<id>bukkit-repo</id>
-			<url>http://repo.bukkit.org/content/groups/public</url>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
 		<repository>
 			<id>vault-repo</id>
-			<url>http://ci.herocraftonline.com/plugin/repository/everything</url>
+			<url>http://nexus.hc.to/content/repositories/pub_releases</url>
 		</repository>
 	</repositories>
 
 	<dependencies>
 		<dependency>
-		        <groupId>org.bukkit</groupId>
+			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>1.4.6-R0.3</version>
-			<type>jar</type>
+			<version>1.13.2-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.milkbowl.vault</groupId>
-			<artifactId>Vault</artifactId>
-			<version>1.2.22-SNAPSHOT</version>
-			<type>jar</type>
+			<artifactId>VaultAPI</artifactId>
+			<version>1.7</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
